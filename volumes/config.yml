@@ -14,5 +14,5 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /export/volumes/prometheus-store
+    path: /volumes/prometheus-store
     server: 192.168.0.50

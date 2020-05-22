@@ -9,7 +9,7 @@ global:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  - job_name: 'kubernetes-raspberries':
+  - job_name: 'kubernetes-raspberries'
     static_configs:
       - targets:
         - 192.168.0.101:9100
