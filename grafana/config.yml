@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-deployment
+  labels:
+    app: grafana
+    purpose: visualize household metrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+      purpose: visualize household metrics
+  template:
+    metadata:
+      labels:
+        app: grafana
+        purpose: visualize household metrics
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/grafana/grafana.yml
+            subPath: prometheus.yml
+        ports:
+        - containerPort: 3000
+      volumes:
+        - name: config-volume
+          configMap:
+           name: grafana-cm
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: grafana-service
+spec:
+  selector:
+    app: grafana
+    purpose: visualize household metrics
+  ports:
+  - name: grafanaui
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
+apiVersion: v1
