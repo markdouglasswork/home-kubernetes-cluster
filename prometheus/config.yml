@@ -27,6 +27,8 @@ spec:
             subPath: prometheus.yml
           - name: prometheus-store
             mountPath: "/prometheus/data"
+          - name: prometheus-wal
+            mountPath: "/prometheus/wal"
         ports:
         - containerPort: 9090
       volumes:
@@ -36,6 +38,9 @@ spec:
         - name: prometheus-store
           persistentVolumeClaim:
             claimName: prometheus-claim
+        - name: prometheus-wal
+          persistentVolumeClaim:
+            claimName: prometheus-wal
 ---
 kind: Service
 apiVersion: v1
@@ -50,19 +55,6 @@ spec:
     protocol: TCP
     port: 9090
     targetPort: 9090
-  externalIPs:
-    - 192.168.0.60
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: prometheus-external-service
-spec:
-  selector:
-    service: prometheus-service
-    purpose: monitor-household-stuff
-  type: ExternalName
-  externalName: home.prometheus
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -74,5 +66,18 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
+      storage: 8Gi
+  storageClassName: slow
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metdata:
+  name: prometheus-wal
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    request:
       storage: 8Gi
   storageClassName: slow
