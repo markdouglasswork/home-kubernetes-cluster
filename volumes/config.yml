@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -16,3 +17,25 @@ spec:
   nfs:
     path: /volumes/prometheus-store
     server: 192.168.0.50
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0004
+  labels:
+    purpose: prometheus-wal
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: slow
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /volumes/prometheus-wal
+    server: 192.168.0.50
+

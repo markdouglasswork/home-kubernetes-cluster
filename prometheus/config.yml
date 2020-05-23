@@ -71,13 +71,16 @@ spec:
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
-metdata:
+metadata:
   name: prometheus-wal
 spec:
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem
   resources:
-    request:
+    requests:
       storage: 8Gi
   storageClassName: slow
+  selector:
+    matchLabels:
+      purpose: "prometheus-wal"

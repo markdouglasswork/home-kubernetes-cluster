@@ -23,8 +23,8 @@ spec:
         image: grafana/grafana
         volumeMounts:
           - name: config-volume
-            mountPath: /etc/grafana/provisioning/datasources
-            subPath: prometheus.yml
+            mountPath: /etc/grafana/provisioning/datasources/prometheus.yaml
+            subPath: datasources.yml
         ports:
         - containerPort: 3000
       volumes:
