@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: terraria-deployment-large-master
+  labels:
+    app: terraria-large-master
+    purpose: provide-terraria-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: terraria-large-master
+      purpose: provide-terraria-server
+  template:
+    metadata:
+      labels:
+        app: terraria-large-master
+        purpose: provide-terraria-server
+    spec:
+      containers:
+      - name: terraria
+        image: markthemarkest/terraria-server
+        command: ["mono"]
+        args: ["--server", "--gc=sgen", "-O=all", "TerrariaServer.exe", "-config", "/var/tshock/server-config.txt"]
+        volumeMounts:
+          - name: config-volume
+            mountPath: "/var/tshock/server-config.txt"
+            subPath: server-config.txt
+          - name: save-volume
+            mountPath: "/var/terraria/worlds"
+        ports:
+        - containerPort: 7777
+      volumes:
+        - name: config-volume
+          configMap:
+            name: terraria-large-master-cm
+        - name: save-volume
+          persistentVolumeClaim:
+            claimName: terraria-save-claim
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: terraria-large-master-service
+spec:
+  type: NodePort
+  selector:
+    app: terraria-large-master
+    purpose: provide-terraria-server
+  ports:
+  - name: promui
+    protocol: TCP
+    port: 7777
+    targetPort: 7777

@@ -38,4 +38,24 @@ spec:
   nfs:
     path: /volumes/prometheus-wal
     server: 192.168.0.50
-
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0005
+  labels:
+    purpose: terraria-saves
+spec:
+  capacity:
+    storage: 20Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: slow
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /volumes/game-saves/terraria-worlds
+    server: 192.168.0.50

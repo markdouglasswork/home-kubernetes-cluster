@@ -22,17 +22,38 @@ spec:
       - name: terraria
         image: markthemarkest/terraria-server
         command: ["mono"]
-        args: ["--server", "--gc=sgen", "-O=all", "TerrariaServer.exe", "-autocreate", "1"]
+        args: ["--server", "--gc=sgen", "-O=all", "TerrariaServer.exe", "-config", "/var/tshock/server-config.txt"]
         volumeMounts:
           - name: config-volume
-            mountPath: "/tshock/server-config.txt"
+            mountPath: "/var/tshock/server-config.txt"
             subPath: server-config.txt
+          - name: save-volume
+            mountPath: "/var/terraria/worlds"
         ports:
         - containerPort: 7777
       volumes:
         - name: config-volume
           configMap:
             name: terraria-cm
+        - name: save-volume
+          persistentVolumeClaim:
+            claimName: terraria-save-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: terraria-save-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: slow
+  selector:
+    matchLabels:
+      purpose: "terraria-saves"
 ---
 kind: Service
 apiVersion: v1
