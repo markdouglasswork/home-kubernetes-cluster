@@ -22,15 +22,21 @@ spec:
       - name: grafana
         image: grafana/grafana
         volumeMounts:
-          - name: config-volume
-            mountPath: /etc/grafana/provisioning/datasources/prometheus.yaml
+          - name: datasource-config-volume
+            mountPath: /etc/grafana/provisioning/datasources/datasources.yaml
             subPath: datasources.yml
+          - name: dashboard-config-volume
+            mountPath: /etc/grafana/provisioning/dashboards/dashboards.yaml
+            subPath: dashboards.yml
         ports:
         - containerPort: 3000
       volumes:
-        - name: config-volume
+        - name: datasource-config-volume
           configMap:
-           name: grafana-cm
+            name: grafana-datasource-cm
+        - name: dashboard-config-volume
+          configMap:
+            name: grafana-dashboard-cm
 ---
 kind: Service
 apiVersion: v1
