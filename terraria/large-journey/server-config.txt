@@ -1,0 +1,7 @@
+autocreate=3
+worldmode=3
+difficulty=3
+maxplayers=8
+worldname=Large Journey
+worldpath=/var/terraria/worlds
+world=/var/terraria/worlds/Large_Journey.wld

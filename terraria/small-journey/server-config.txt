@@ -1,6 +1,0 @@
-autocreate=1
-difficulty=3
-maxplayers=8
-worldname=Journey
-worldpath=/var/terraria/worlds
-world=/var/terraria/worlds/journey.wld

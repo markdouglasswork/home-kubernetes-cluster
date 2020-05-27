@@ -3,4 +3,4 @@ difficulty=2
 maxplayers=8
 worldname=Large Master
 worldpath=/var/terraria/worlds
-world=/var/terraria/worlds/large-master.wld
+world=/var/terraria/worlds/Large_Master.wld
