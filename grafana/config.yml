@@ -26,17 +26,23 @@ spec:
             mountPath: /etc/grafana/provisioning/datasources/datasources.yaml
             subPath: datasources.yml
           - name: dashboard-config-volume
-            mountPath: /etc/grafana/provisioning/dashboards/dashboards.yaml
+            mountPath: /var/lib/grafana/dashboards/dashboards.yaml
             subPath: dashboards.yml
+          - name: dashboard-providers-volume
+            mountPath: /etc/grafana/provisioning/dashboards/dashboard-providers.yaml
+            subPath: dashboard-providers.yml
         ports:
         - containerPort: 3000
       volumes:
         - name: datasource-config-volume
           configMap:
-            name: grafana-datasource-cm
+           name: grafana-datasource-cm
         - name: dashboard-config-volume
           configMap:
-            name: grafana-dashboard-cm
+           name: grafana-dashboard-cm
+        - name: dashboard-providers-volume
+          configMap:
+           name: grafana-dashboard-providers-cm
 ---
 kind: Service
 apiVersion: v1
