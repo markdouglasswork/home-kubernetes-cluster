@@ -68,6 +68,9 @@ spec:
     requests:
       storage: 8Gi
   storageClassName: slow
+  selector:
+    matchLabels:
+      purpose: "prometheus-store"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
