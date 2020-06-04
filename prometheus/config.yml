@@ -26,9 +26,7 @@ spec:
             mountPath: /etc/prometheus/prometheus.yml
             subPath: prometheus.yml
           - name: prometheus-store
-            mountPath: "/prometheus/data"
-          - name: prometheus-wal
-            mountPath: "/prometheus/wal"
+            mountPath: "/prometheus"
         ports:
         - containerPort: 9090
       volumes:
@@ -38,9 +36,6 @@ spec:
         - name: prometheus-store
           persistentVolumeClaim:
             claimName: prometheus-claim
-        - name: prometheus-wal
-          persistentVolumeClaim:
-            claimName: prometheus-wal
 ---
 kind: Service
 apiVersion: v1
@@ -71,19 +66,3 @@ spec:
   selector:
     matchLabels:
       purpose: "prometheus-store"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: prometheus-wal
-spec:
-  accessModes:
-    - ReadWriteOnce
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 8Gi
-  storageClassName: slow
-  selector:
-    matchLabels:
-      purpose: "prometheus-wal"
