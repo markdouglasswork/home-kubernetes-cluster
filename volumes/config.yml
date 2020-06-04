@@ -23,9 +23,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv0004
+  name: mysql-store
   labels:
-    purpose: prometheus-wal
+    purpose: mysql-store
 spec:
   capacity:
     storage: 8Gi
@@ -38,7 +38,7 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /volumes/prometheus-wal
+    path: /volumes/mysql-store
     server: 192.168.0.50
 ---
 apiVersion: v1
