@@ -20,7 +20,10 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:8
+        image: webhippie/mariadb
+        env:
+          - name: MARIADB_ROOT_PASSWORD
+            value: keepItSecret
         volumeMounts:
           - name: mysql-store
             mountPath: "/var/lib/mysql"
