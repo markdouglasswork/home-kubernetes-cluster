@@ -20,15 +20,19 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: webhippie/mariadb
+        image: linuxserver/mariadb
         env:
-          - name: MARIADB_ROOT_PASSWORD
+          - name: MYSQL_ROOT_PASSWORD
             value: keepItSecret
+          - name: PUID
+            value: '65534'
+          - name: PGID
+            value: '65534'
         volumeMounts:
           - name: mysql-store
             mountPath: "/var/lib/mysql"
         ports:
-        - containerPort: 8080
+        - containerPort: 3306
       volumes:
         - name: mysql-store
           persistentVolumeClaim:
@@ -45,8 +49,8 @@ spec:
   ports:
   - name: promui
     protocol: TCP
-    port: 8080
-    targetPort: 8080
+    port: 3306
+    targetPort: 3306
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -63,3 +67,17 @@ spec:
   selector:
     matchLabels:
       purpose: "mysql-store"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql-service-external
+spec:
+  type: NodePort
+  ports:
+    - port: 3306
+      nodePort: 30306
+  selector:
+    app: mysql
+    purpose: provice-mysql-server
+
