@@ -21,9 +21,12 @@ spec:
       containers:
       - name: terraria
         image: markthemarkest/terraria-server
-        command: ["mono"]
-        args: ["--server", "--gc=sgen", "-O=all", "TerrariaServer.exe", "-config", "/var/tshock/server-config.txt"]
+        command: ["/bin/bash"]
+        args: ["cp /tshock/tshock/config-defaults.json /tshock/tshock/config.json && mono","--server", "--gc=sgen", "-O=all", "TerrariaServer.exe", "-config", "/var/tshock/server-config.txt"]
         volumeMounts:
+          - name: tshock-config-volume
+            mountPath: "/tshock/tshock/config-defaults.json"
+            subPath: tshock-config.json
           - name: config-volume
             mountPath: "/var/tshock/server-config.txt"
             subPath: server-config.txt
@@ -32,6 +35,9 @@ spec:
         ports:
         - containerPort: 7777
       volumes:
+        - name: tshock-config-volume
+          configMap:
+            name: tshock-large-master-cm
         - name: config-volume
           configMap:
             name: terraria-large-master-cm
