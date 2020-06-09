@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 
 ARG TSHOCK_VERSION=4.4.0
-ADD https://www.terraria.org/system/dedicated_servers/archives/000/000/038/original/terraria-server-1404.zip?1590253816 terraria.zip
+ADD https://github.com/Pryaxis/TShock/releases/tag/v4.4.0-pre11 terraria.zip
 RUN apt-get update && \
     apt-get install -y jq moreutils unzip --no-install-recommends && \    
     unzip terraria.zip -d /tshock && \
