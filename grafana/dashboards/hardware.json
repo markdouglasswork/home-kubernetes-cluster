@@ -75,7 +75,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "Pi CPU Pressure",
       "tooltip": {
         "shared": true,
         "sort": 0,
