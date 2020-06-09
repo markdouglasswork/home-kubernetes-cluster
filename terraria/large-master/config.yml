@@ -20,9 +20,7 @@ spec:
     spec:
       containers:
       - name: terraria
-        image: markthemarkest/terraria-server
-        command: ["/bin/bash"]
-        args: ["cp /tshock/tshock/config-defaults.json /tshock/tshock/config.json && mono","--server", "--gc=sgen", "-O=all", "TerrariaServer.exe", "-config", "/var/tshock/server-config.txt"]
+        image: markthemarkest/terraria-server-configured
         volumeMounts:
           - name: tshock-config-volume
             mountPath: "/tshock/tshock/config-defaults.json"
