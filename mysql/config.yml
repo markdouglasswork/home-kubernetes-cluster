@@ -30,7 +30,7 @@ spec:
             value: '65534'
         volumeMounts:
           - name: mysql-store
-            mountPath: "/var/lib/mysql"
+            mountPath: "/config"
         ports:
         - containerPort: 3306
       volumes:
