@@ -69,7 +69,7 @@ But this is a true dial tone Prometheus.
 I have to ssh into its container to talk to it,
 and it has only the single default scrape config that comes with the docker image.
 
-##### Exposing Prometheus
+###### Exposing Prometheus
 I want to be able to communicate with the Prometheus instance from a browser...
 Turns out I have to add another k8s entity to the manifest above (it could also go in its own file, but meh...)
 ```yaml
@@ -88,15 +88,24 @@ spec:
     port: 9090
     targetPort: 9090
 ```
+This exposes the port to other pods running within kubernetes, and they will be able to discover it with the hostname `prometheus-service`
 
-##### Adding the prometheus node exporter to the Pis
+###### Adding the prometheus node exporter to the Pis
 
-##### Adding temperature readings to the outgoing Pi data
 
-##### Configuring up Prometheus to scrape the Pis
-Ok, now I want prometheus to scra
+####### Adding temperature readings to the outgoing Pi data
 
-##### Setting up persistence for Prometheus
+###### Configuring up Prometheus to scrape the Pis
+Ok, now I want prometheus to scrape my Raspberry  Pi prometheus endpoints, so I can record the data
+
+###### Setting up persistence for Prometheus
+If I want my metrics history to persist through restarts, I'll need to
+
+####### Configuring NFS Shares on another server
+You'll need a computer running Linux or MacOS
+I used an old, unneeded laptop running Ubuntu Server.
+You could use an old desktop or another Pi.
+If using another Pi, I would recommend using a USB port to hook it up to something other than the SD card
 
 ##### Getting Grafana up and running
 
