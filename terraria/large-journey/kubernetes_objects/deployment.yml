@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: terraria-deployment-large-master
+  name: terraria-large-journey-deployment
   labels:
-    app: terraria-large-master
+    app: terraria
     purpose: provide-terraria-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: terraria-large-master
+      app: terraria
       purpose: provide-terraria-server
   template:
     metadata:
       labels:
-        app: terraria-large-master
+        app: terraria
         purpose: provide-terraria-server
     spec:
       containers:
@@ -35,25 +35,10 @@ spec:
       volumes:
         - name: tshock-config-volume
           configMap:
-            name: tshock-large-master-cm
+            name: tshock-large-journey-cm
         - name: config-volume
           configMap:
-            name: terraria-large-master-cm
+            name: terraria-large-journey-cm
         - name: save-volume
           persistentVolumeClaim:
             claimName: terraria-save-claim
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: terraria-large-master-service
-spec:
-  type: NodePort
-  selector:
-    app: terraria-large-master
-    purpose: provide-terraria-server
-  ports:
-  - name: promui
-    protocol: TCP
-    port: 7777
-    nodePort: 31002

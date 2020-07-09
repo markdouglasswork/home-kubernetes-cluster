@@ -1,0 +1,15 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: terraria-large-journey-service
+spec:
+  type: NodePort
+  selector:
+    app: terraria
+    purpose: provide-terraria-server
+  ports:
+  - name: terraria
+    protocol: TCP
+    port: 7777
+    nodePort: 31001

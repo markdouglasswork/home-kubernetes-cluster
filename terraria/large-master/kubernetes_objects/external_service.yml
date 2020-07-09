@@ -1,0 +1,15 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: terraria-large-master-service
+spec:
+  type: NodePort
+  selector:
+    app: terraria-large-master
+    purpose: provide-terraria-server
+  ports:
+  - name: promui
+    protocol: TCP
+    port: 7777
+    nodePort: 31002

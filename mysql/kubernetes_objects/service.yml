@@ -1,0 +1,14 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql-service
+spec:
+  selector:
+    app: mysql
+    purpose: provide-mysql-db
+  ports:
+  - name: promui
+    protocol: TCP
+    port: 3306
+    targetPort: 3306

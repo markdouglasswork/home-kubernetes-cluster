@@ -1,12 +1,16 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: prometheus-claim
+  name: terraria-save-claim
 spec:
   accessModes:
     - ReadWriteMany
   volumeMode: Filesystem
   resources:
     requests:
-      storage: 8Gi
+      storage: 20Gi
   storageClassName: slow
+  selector:
+    matchLabels:
+      purpose: "terraria-saves"
