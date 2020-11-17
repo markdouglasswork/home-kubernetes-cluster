@@ -14,9 +14,7 @@
   },
   "description": "A dashboard for monitoring a Windows Desktop/Gaming PC. Using Prometheus, wmi_exporter, and OhmGraphite.",
   "editable": true,
-  "gnetId": 9837,
   "graphTooltip": 0,
-  "iteration": 1605464847768,
   "links": [],
   "panels": [
     {
@@ -2949,7 +2947,6 @@
     ]
   },
   "timezone": "browser",
-  "title": "Gaming Desktop",
-  "uid": "woRrCAril",
+  "title": "Mark Windows Laptop",
   "version": 2
 }
