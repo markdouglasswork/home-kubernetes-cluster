@@ -22,8 +22,8 @@ scrape_configs:
   - job_name: 'pandora'
     static_configs:
       - targets:
-        - 192.168.0.12:4445
-        - 192.168.0.12:9182
+        - 192.168.0.8:4445
+        - 192.168.0.8:9182
   - job_name: 'kubernetes-raspberries'
     static_configs:
       - targets:
