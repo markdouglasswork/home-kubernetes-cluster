@@ -17,8 +17,8 @@ scrape_configs:
   - job_name: 'mark-laptop-windows'
     static_configs:
       - targets:
-        - 192.168.0.10:4445
-        - 192.168.0.10:9182
+        - 192.168.0.17:4445
+        - 192.168.0.17:9182
   - job_name: 'pandora'
     static_configs:
       - targets:
