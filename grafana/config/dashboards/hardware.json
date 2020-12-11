@@ -159,7 +159,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_memory_Active / node_memory_MemTotal * 100",
+          "expr": "node_memory_Active / (node_memory_Active + node_memory_MemTotal) * 100",
           "interval": "",
           "legendFormat": "",
           "refId": "B"
