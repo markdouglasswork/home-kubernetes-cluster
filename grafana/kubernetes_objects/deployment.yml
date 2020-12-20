@@ -41,6 +41,9 @@ spec:
             mountPath: /var/lib/grafana/dashboards/pandora.json
             subPath: pandora.json
           - name: grafana-dashboards-volume
+            mountPath: /var/lib/grafana/dashboards/dora.json
+            subPath: dora.json
+          - name: grafana-dashboards-volume
             mountPath: /var/lib/grafana/dashboards/mark-laptop-windows.json
             subPath: mark-laptop-windows.json
         ports:
