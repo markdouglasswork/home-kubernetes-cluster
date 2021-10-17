@@ -170,7 +170,7 @@
       "pluginVersion": "7.2.2",
       "targets": [
         {
-          "expr": "sum(ohm_gpunvidia_load_percent{job=\"mark-desktop\"})",
+          "expr": "sum(ohm_gpuati_load_percent{job=\"mark-desktop\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -473,7 +473,7 @@
       "pluginVersion": "7.2.2",
       "targets": [
         {
-          "expr": "ohm_gpunvidia_celsius{job=\"mark-desktop\"}",
+          "expr": "ohm_gpuati_celsius{job=\"mark-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -598,7 +598,7 @@
       "pluginVersion": "7.2.2",
       "targets": [
         {
-          "expr": "ohm_gpunvidia_control_percent{job=\"mark-desktop\"}",
+          "expr": "ohm_gpuati_control_percent{job=\"mark-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -778,7 +778,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpunvidia_load_percent{job=\"mark-desktop\"}",
+          "expr": "ohm_gpuati_load_percent{job=\"mark-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1003,7 +1003,7 @@
           "refId": "A"
         },
         {
-          "expr": "ohm_gpunvidia_bytes{sensor=\"GPU Memory Total\",job=\"mark-desktop\"} / 1000000",
+          "expr": "ohm_gpu
           "interval": "",
           "legendFormat": "",
           "refId": "B"
@@ -1103,7 +1103,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpunvidia_hertz{job=\"mark-desktop\"} / 1000000",
+          "expr": "ohm_gpuati_hertz{job=\"mark-desktop\"} / 1000000",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1202,7 +1202,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpunvidia_watts{job=\"mark-desktop\"}",
+          "expr": "ohm_gpuati_watts{job=\"mark-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -2196,7 +2196,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpunvidia_celsius{job=\"mark-desktop\"}",
+          "expr": "ohm_gpuati_celsius{job=\"mark-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -2299,7 +2299,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpunvidia_control_percent{job=\"mark-desktop\"}",
+          "expr": "ohm_gpuati_control_percent{job=\"mark-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
