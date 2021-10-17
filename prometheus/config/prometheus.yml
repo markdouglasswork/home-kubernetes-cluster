@@ -12,8 +12,8 @@ scrape_configs:
   - job_name: 'mark-desktop'
     static_configs:
       - targets:
-        - 192.168.0.11:4445
-        - 192.168.0.11:9182
+        - 192.168.0.16:4445
+        - 192.168.0.16:9182
   - job_name: 'dora'
     static_configs:
       - targets:
