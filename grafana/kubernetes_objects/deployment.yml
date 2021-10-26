@@ -46,6 +46,9 @@ spec:
           - name: grafana-dashboards-volume
             mountPath: /var/lib/grafana/dashboards/mark-laptop-windows.json
             subPath: mark-laptop-windows.json
+          - name: grafana-dashboards-volume
+            mountPath: /var/lib/grafana/dashboards/linux-desktop.json
+            subPath: linux-desktop.json
         ports:
         - containerPort: 3000
       volumes:
