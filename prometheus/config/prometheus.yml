@@ -13,7 +13,7 @@ scrape_configs:
     static_configs:
       - targets:
         - 192.168.0.11:4445
-        - 192.168.0.11:9100
+        - 192.168.0.11:9400
   - job_name: 'mark-desktop'
     static_configs:
       - targets:
