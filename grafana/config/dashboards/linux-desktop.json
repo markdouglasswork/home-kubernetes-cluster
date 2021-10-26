@@ -261,7 +261,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "((node_memory_MemTotal_bytes{job=\"linux-desktop\"} - node_memory_MemFree_bytes{job=\"linux-desktop\"}  - node_memory_Cached_bytes{job="linux-desktop"}) / (node_memory_MemTotal_bytes{job=\"linux-desktop\"} )) * 100",
+          "expr": "((node_memory_MemTotal_bytes{job=\"linux-desktop\"} - node_memory_MemFree_bytes{job=\"linux-desktop\"}  - node_memory_Cached_bytes{job=\"linux-desktop\"}) / (node_memory_MemTotal_bytes{job=\"linux-desktop\"} )) * 100",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -897,7 +897,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "(node_memory_MemTotal_bytes{job=\"linux-desktop\"} - node_memory_MemFree_bytes{job=\"linux-desktop\"}) - node_memory_Cached_bytes{job="linux-desktop"}",
+          "expr": "(node_memory_MemTotal_bytes{job=\"linux-desktop\"} - node_memory_MemFree_bytes{job=\"linux-desktop\"}) - node_memory_Cached_bytes{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
