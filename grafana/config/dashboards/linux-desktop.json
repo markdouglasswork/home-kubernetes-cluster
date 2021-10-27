@@ -111,7 +111,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum((avg without (cpu) (sum(irate(node_cpu_seconds_total{mode!=\"idle\",job=\"linux-desktop\"}[5m])) by (mode)) / 8)* 100)",
+          "expr": "sum((avg without (cpu) (sum(irate(node_cpu_seconds_total{mode!=\"idle\",job=\"linux-desktop\"}[5m])) by (mode)) / 4)* 100)",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -699,7 +699,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "(avg without (cpu) (sum(irate(node_cpu_seconds_total{mode!=\"idle\",job=\"linux-desktop\"}[5m])) by (mode)) / 8)* 100",
+          "expr": "(avg without (cpu) (sum(irate(node_cpu_seconds_total{mode!=\"idle\",job=\"linux-desktop\"}[5m])) by (mode)) / 4)* 100",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
