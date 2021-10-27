@@ -617,7 +617,7 @@
       "pluginVersion": "8.2.2",
       "targets": [
         {
-          "expr": "ohm_gpuati_control_percent{job=\"linux-desktop\"}",
+          "expr": "DCGM_FI_DEV_FAN_SPEED{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -2235,7 +2235,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpuati_control_percent{job=\"linux-desktop\"}",
+          "expr": "DCGM_FI_DEV_FAN_SPEED{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
