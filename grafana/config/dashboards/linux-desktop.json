@@ -185,7 +185,7 @@
       "pluginVersion": "8.2.2",
       "targets": [
         {
-          "expr": "sum(ohm_gpuati_load_percent{job=\"linux-desktop\"})",
+          "expr": "sum(DCGM_FI_DEV_GPU_UTIL{job=\"linux-desktop\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -489,7 +489,7 @@
       "pluginVersion": "8.2.2",
       "targets": [
         {
-          "expr": "ohm_gpuati_celsius{job=\"linux-desktop\"}",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -799,7 +799,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpuati_load_percent{job=\"linux-desktop\"}",
+          "expr": "DCGM_FI_DEV_GPU_UTIL{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1021,10 +1021,16 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpuati_hertz{job=\"linux-desktop\"} / 1000000",
+          "expr": "DCGM_FI_DEV_SM_CLOCK{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
+        },
+        {
+          "expr": "DCGM_FI_DEV_MEM_CLOCK{job=\"linux-desktop\"}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -1119,7 +1125,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpuati_watts{job=\"linux-desktop\"}",
+          "expr": "DCGM_FI_DEV_POWER_USAGE{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -2127,7 +2133,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_gpuati_celsius{job=\"linux-desktop\"}",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{job=\"linux-desktop\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
