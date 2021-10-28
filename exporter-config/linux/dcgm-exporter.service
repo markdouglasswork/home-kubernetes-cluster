@@ -1,0 +1,11 @@
+[Unit]
+Description=Metrics Exporter for NVIDIA cards using DCGM
+
+[Service]
+User=root
+WorkingDirectory=/root
+ExecStart=dcgm-exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
