@@ -21,6 +21,8 @@ spec:
       containers:
       - name: prometheus
         image: prom/prometheus
+        command: ["/bin/prometheus"]
+        args: ["--storage.tsdb.retention.time=30d","--config.file=/etc/prometheus/prometheus.yml","--storage.tsdb.path=/prometheus","--web.console.libraries=/usr/share/prometheus/console_libraries","--web.console.templates=/usr/share/prometheus/consoles"]
         volumeMounts:
           - name: config-volume
             mountPath: /etc/prometheus/prometheus.yml
