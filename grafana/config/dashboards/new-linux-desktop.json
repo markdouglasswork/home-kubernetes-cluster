@@ -495,7 +495,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "node_hwmon_temp_celsius{chip=\"0000:07:00_0_0000:08:00_0\",job=\"duke\",sensor=\"temp2\"}",
+          "expr": "node_hwmon_temp_celsius{chip=\"platform_nct6775_656\", instance=\"192.168.0.8:9100\", job=\"duke\", sensor=\"temp2\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -623,7 +623,8 @@
       "pluginVersion": "8.2.5",
       "targets": [
         {
-          "expr": "DCGM_FI_DEV_FAN_SPEED{job=\"duke\"}",
+          "exemplar": true,
+          "expr": "node_hwmon_fan_rpm{chip=\"0000:07:00_0_0000:08:00_0\",job=\"duke\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -2006,7 +2007,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "node_hwmon_temp_celsius{chip=\"thermal_thermal_zone0\",job=\"duke\"}",
+          "expr": "node_hwmon_temp_celsius{chip=\"platform_nct6775_656\", instance=\"192.168.0.8:9100\", job=\"duke\", sensor=\"temp2\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -2107,7 +2108,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "ohm_superio_revolutions_per_minute{job=\"duke\"}",
+          "exemplar": true,
+          "expr": "node_hwmon_fan_rpm{chip=\"platform_nct6775_656\",job=\"duke\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
