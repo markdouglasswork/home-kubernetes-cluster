@@ -34,6 +34,11 @@ scrape_configs:
       - targets:
         - 192.168.0.8:4445
         - 192.168.0.8:9182
+  - job_name: 'duke'
+    static_configs:
+      - targets:
+        - 192.168.0.8:9100
+        - 192.168.0.8:9400
   - job_name: 'kubernetes-raspberries'
     static_configs:
       - targets:

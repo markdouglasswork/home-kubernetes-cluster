@@ -49,6 +49,9 @@ spec:
           - name: grafana-dashboards-volume
             mountPath: /var/lib/grafana/dashboards/linux-desktop.json
             subPath: linux-desktop.json
+          - name: grafana-dashboards-volume
+            mountPath: /var/lib/grafana/dashboards/new-linux-desktop.json
+            subPath: new-linux-desktop.json
         ports:
         - containerPort: 3000
       volumes:
